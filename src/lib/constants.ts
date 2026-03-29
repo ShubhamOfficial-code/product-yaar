@@ -36,7 +36,7 @@ export interface StaffMember {
 
 export const DEPARTMENTS: Department[] = [
   'Sales',
-  'Payments',
+  'Finance',
   'Tech Support',
   'Academic Support',
   'General Support',
