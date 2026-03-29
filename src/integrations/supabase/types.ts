@@ -14,7 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      tickets: {
+        Row: {
+          assigned_to: string
+          created_at: string
+          date_time: string
+          department: string
+          id: string
+          issue_type: string
+          notes: Json
+          priority: string
+          sender_email: string
+          status: string
+          subject: string
+          summary: string
+          ticket_id: string
+        }
+        Insert: {
+          assigned_to?: string
+          created_at?: string
+          date_time?: string
+          department: string
+          id?: string
+          issue_type?: string
+          notes?: Json
+          priority: string
+          sender_email: string
+          status?: string
+          subject?: string
+          summary?: string
+          ticket_id: string
+        }
+        Update: {
+          assigned_to?: string
+          created_at?: string
+          date_time?: string
+          department?: string
+          id?: string
+          issue_type?: string
+          notes?: Json
+          priority?: string
+          sender_email?: string
+          status?: string
+          subject?: string
+          summary?: string
+          ticket_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
