@@ -37,7 +37,7 @@ export function TicketProvider({ children }: { children: React.ReactNode }) {
 
   // Fetch all tickets
   const fetchTickets = useCallback(async () => {
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('tickets')
       .select('*')
       .order('created_at', { ascending: false });
@@ -70,17 +70,17 @@ export function TicketProvider({ children }: { children: React.ReactNode }) {
 
   const updateTicketStatus = useCallback(async (id: string, status: TicketStatus) => {
     setTickets(prev => prev.map(t => t.id === id ? { ...t, status } : t));
-    await supabase.from('tickets').update({ status }).eq('id', id);
+    await (supabase as any).from('tickets').update({ status }).eq('id', id);
   }, []);
 
   const updateTicketAssignment = useCallback(async (id: string, assignedTo: string) => {
     setTickets(prev => prev.map(t => t.id === id ? { ...t, assigned_to: assignedTo } : t));
-    await supabase.from('tickets').update({ assigned_to: assignedTo }).eq('id', id);
+    await (supabase as any).from('tickets').update({ assigned_to: assignedTo }).eq('id', id);
   }, []);
 
   const updateTicketDepartment = useCallback(async (id: string, department: Department) => {
     setTickets(prev => prev.map(t => t.id === id ? { ...t, department } : t));
-    await supabase.from('tickets').update({ department }).eq('id', id);
+    await (supabase as any).from('tickets').update({ department }).eq('id', id);
   }, []);
 
   const addNote = useCallback(async (id: string, note: TicketNote) => {
@@ -88,7 +88,7 @@ export function TicketProvider({ children }: { children: React.ReactNode }) {
     if (!ticket) return;
     const updatedNotes = [...ticket.notes, note];
     setTickets(prev => prev.map(t => t.id === id ? { ...t, notes: updatedNotes } : t));
-    await supabase.from('tickets').update({ notes: updatedNotes as unknown as any }).eq('id', id);
+    await (supabase as any).from('tickets').update({ notes: updatedNotes }).eq('id', id);
   }, [tickets]);
 
   return (
