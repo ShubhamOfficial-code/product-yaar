@@ -56,7 +56,7 @@ export const SLUG_TO_DEPARTMENT: Record<string, Department> = Object.fromEntries
 
 export const DEPARTMENT_PRIORITIES: Record<Department, Priority[]> = {
   'Sales': ['High', 'Medium', 'Low'],
-  'Payments': ['Critical', 'High', 'Medium', 'Low'],
+  'Finance': ['Critical', 'High', 'Medium', 'Low'],
   'Tech Support': ['Critical', 'High', 'Medium', 'Low'],
   'Academic Support': ['High', 'Medium', 'Low'],
   'General Support': ['Medium', 'Low'],
