@@ -1,4 +1,4 @@
-export type Department = 'Sales' | 'Payments' | 'Tech Support' | 'Academic Support' | 'General Support';
+export type Department = 'Sales' | 'Finance' | 'Tech Support' | 'Academic Support' | 'General Support';
 export type Priority = 'Critical' | 'High' | 'Medium' | 'Low';
 export type TicketStatus = 'Open' | 'In Progress' | 'Resolved' | 'Closed';
 export type UserRole = 'admin' | 'agent';
