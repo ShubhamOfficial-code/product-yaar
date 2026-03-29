@@ -80,7 +80,7 @@ export function TicketProvider({ children }: { children: React.ReactNode }) {
 
   const updateTicketDepartment = useCallback(async (id: string, department: Department) => {
     setTickets(prev => prev.map(t => t.id === id ? { ...t, department } : t));
-    await supabase.from('tickets').update({ department }).eq('id', id);
+    await (supabase as any).from('tickets').update({ department }).eq('id', id);
   }, []);
 
   const addNote = useCallback(async (id: string, note: TicketNote) => {
