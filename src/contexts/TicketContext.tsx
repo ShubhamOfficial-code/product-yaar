@@ -88,7 +88,7 @@ export function TicketProvider({ children }: { children: React.ReactNode }) {
     if (!ticket) return;
     const updatedNotes = [...ticket.notes, note];
     setTickets(prev => prev.map(t => t.id === id ? { ...t, notes: updatedNotes } : t));
-    await supabase.from('tickets').update({ notes: updatedNotes }).eq('id', id);
+    await supabase.from('tickets').update({ notes: updatedNotes as unknown as any }).eq('id', id);
   }, [tickets]);
 
   return (
