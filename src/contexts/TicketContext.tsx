@@ -37,7 +37,7 @@ export function TicketProvider({ children }: { children: React.ReactNode }) {
 
   // Fetch all tickets
   const fetchTickets = useCallback(async () => {
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from('tickets')
       .select('*')
       .order('created_at', { ascending: false });
