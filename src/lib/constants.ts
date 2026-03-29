@@ -44,7 +44,7 @@ export const DEPARTMENTS: Department[] = [
 
 export const DEPARTMENT_SLUGS: Record<Department, string> = {
   'Sales': 'sales',
-  'Payments': 'payments',
+  'Finance': 'finance',
   'Tech Support': 'tech-support',
   'Academic Support': 'academic-support',
   'General Support': 'general-support',
