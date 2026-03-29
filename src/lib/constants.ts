@@ -1,4 +1,4 @@
-export type Department = 'Sales' | 'Payments' | 'Tech Support' | 'Academic Support' | 'General Support';
+export type Department = 'Sales' | 'Finance' | 'Tech Support' | 'Academic Support' | 'General Support';
 export type Priority = 'Critical' | 'High' | 'Medium' | 'Low';
 export type TicketStatus = 'Open' | 'In Progress' | 'Resolved' | 'Closed';
 export type UserRole = 'admin' | 'agent';
@@ -36,7 +36,7 @@ export interface StaffMember {
 
 export const DEPARTMENTS: Department[] = [
   'Sales',
-  'Payments',
+  'Finance',
   'Tech Support',
   'Academic Support',
   'General Support',
@@ -44,7 +44,7 @@ export const DEPARTMENTS: Department[] = [
 
 export const DEPARTMENT_SLUGS: Record<Department, string> = {
   'Sales': 'sales',
-  'Payments': 'payments',
+  'Finance': 'finance',
   'Tech Support': 'tech-support',
   'Academic Support': 'academic-support',
   'General Support': 'general-support',
@@ -56,7 +56,7 @@ export const SLUG_TO_DEPARTMENT: Record<string, Department> = Object.fromEntries
 
 export const DEPARTMENT_PRIORITIES: Record<Department, Priority[]> = {
   'Sales': ['High', 'Medium', 'Low'],
-  'Payments': ['Critical', 'High', 'Medium', 'Low'],
+  'Finance': ['Critical', 'High', 'Medium', 'Low'],
   'Tech Support': ['Critical', 'High', 'Medium', 'Low'],
   'Academic Support': ['High', 'Medium', 'Low'],
   'General Support': ['Medium', 'Low'],
@@ -71,7 +71,7 @@ export const PRIORITY_ORDER: Record<Priority, number> = {
 
 export const DEPARTMENT_COLORS: Record<Department, string> = {
   'Sales': 'dept-sales',
-  'Payments': 'dept-payments',
+  'Finance': 'dept-finance',
   'Tech Support': 'dept-tech',
   'Academic Support': 'dept-academic',
   'General Support': 'dept-general',
@@ -79,7 +79,7 @@ export const DEPARTMENT_COLORS: Record<Department, string> = {
 
 export const DEPARTMENT_HEX: Record<Department, string> = {
   'Sales': '#2563eb',
-  'Payments': '#16a34a',
+  'Finance': '#16a34a',
   'Tech Support': '#ea580c',
   'Academic Support': '#7c3aed',
   'General Support': '#475569',
