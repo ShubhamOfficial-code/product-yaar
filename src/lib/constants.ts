@@ -71,7 +71,7 @@ export const PRIORITY_ORDER: Record<Priority, number> = {
 
 export const DEPARTMENT_COLORS: Record<Department, string> = {
   'Sales': 'dept-sales',
-  'Payments': 'dept-payments',
+  'Finance': 'dept-finance',
   'Tech Support': 'dept-tech',
   'Academic Support': 'dept-academic',
   'General Support': 'dept-general',
