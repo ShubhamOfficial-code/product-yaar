@@ -89,14 +89,28 @@ CREATE POLICY "Allow inserts on notes" ON ticket_notes
 CREATE OR REPLACE FUNCTION initialize_staff()
 RETURNS void AS $$
 BEGIN
-  -- Insert support team members (agents will be assigned in the dashboard UI)
+  -- Insert support team members (9 agents - Indian names)
   INSERT INTO staff (email, name, role, department, is_active) VALUES
-    ('admin@edtech.com', 'Admin User', 'admin', 'Sales', true),
-    ('alice@edtech.com', 'Alice Chen', 'agent', 'Sales', true),
-    ('bob@edtech.com', 'Bob Kumar', 'agent', 'Finance', true),
-    ('carol@edtech.com', 'Carol Smith', 'agent', 'Tech Support', true),
-    ('dave@edtech.com', 'Dave Wilson', 'agent', 'Academic Support', true),
-    ('eve@edtech.com', 'Eve Johnson', 'agent', 'General Support', true)
+    -- Admin
+    ('admin@edtech.com', 'Rajesh Kumar', 'admin', 'Sales', true),
+
+    -- Sales Team (2 agents)
+    ('priya@edtech.com', 'Priya Sharma', 'agent', 'Sales', true),
+    ('aman@edtech.com', 'Aman Patel', 'agent', 'Sales', true),
+
+    -- Finance Team (2 agents)
+    ('vikram@edtech.com', 'Vikram Joshi', 'agent', 'Finance', true),
+    ('neha@edtech.com', 'Neha Verma', 'agent', 'Finance', true),
+
+    -- Tech Support Team (2 agents)
+    ('arjun@edtech.com', 'Arjun Singh', 'agent', 'Tech Support', true),
+    ('anjali@edtech.com', 'Anjali Desai', 'agent', 'Tech Support', true),
+
+    -- Academic Support Team (1 agent)
+    ('rohan@edtech.com', 'Rohan Nair', 'agent', 'Academic Support', true),
+
+    -- General Support Team (1 agent)
+    ('sneha@edtech.com', 'Sneha Gupta', 'agent', 'General Support', true)
   ON CONFLICT (email) DO NOTHING;
 END;
 $$ LANGUAGE plpgsql;
