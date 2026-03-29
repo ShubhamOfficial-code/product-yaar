@@ -79,7 +79,7 @@ export const DEPARTMENT_COLORS: Record<Department, string> = {
 
 export const DEPARTMENT_HEX: Record<Department, string> = {
   'Sales': '#2563eb',
-  'Payments': '#16a34a',
+  'Finance': '#16a34a',
   'Tech Support': '#ea580c',
   'Academic Support': '#7c3aed',
   'General Support': '#475569',
