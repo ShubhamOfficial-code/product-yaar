@@ -75,7 +75,7 @@ export function TicketProvider({ children }: { children: React.ReactNode }) {
 
   const updateTicketAssignment = useCallback(async (id: string, assignedTo: string) => {
     setTickets(prev => prev.map(t => t.id === id ? { ...t, assigned_to: assignedTo } : t));
-    await supabase.from('tickets').update({ assigned_to: assignedTo }).eq('id', id);
+    await (supabase as any).from('tickets').update({ assigned_to: assignedTo }).eq('id', id);
   }, []);
 
   const updateTicketDepartment = useCallback(async (id: string, department: Department) => {
