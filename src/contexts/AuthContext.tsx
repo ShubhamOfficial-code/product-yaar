@@ -2,6 +2,11 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import { StaffMember, UserRole, Department } from '@/lib/constants';
 import { MOCK_STAFF } from '@/lib/mock-data';
 
+// ⚠️ HARDCODED DEMO CREDENTIALS
+// Email: demo@edtech.com | Password: Demo@123
+const ADMIN_EMAIL = 'demo@edtech.com';
+const ADMIN_PASSWORD = 'Demo@123';
+
 interface AuthContextType {
   user: StaffMember | null;
   isLoading: boolean;
@@ -23,12 +28,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsLoading(false);
   }, []);
 
-  const login = async (email: string, _password: string): Promise<boolean> => {
-    const staff = MOCK_STAFF.find(s => s.email === email && s.is_active);
-    if (staff) {
-      setUser(staff);
-      localStorage.setItem('edtech_user', JSON.stringify(staff));
-      return true;
+  const login = async (email: string, password: string): Promise<boolean> => {
+    // Validate email and password against hardcoded demo credentials
+    if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+      // Find the user in mock staff (use admin for demo)
+      const staff = MOCK_STAFF.find(s => s.email === 'admin@edtech.com' && s.is_active);
+      if (staff) {
+        setUser(staff);
+        localStorage.setItem('edtech_user', JSON.stringify(staff));
+        return true;
+      }
     }
     return false;
   };
